@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <h1>Phanos Website</h1>
+      <h1>Phanos Website!</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {data && <p>Backend Response: {data}</p>}
