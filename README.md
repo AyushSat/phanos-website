@@ -1,21 +1,7 @@
-# React + TypeScript + Vite
+Hosted on Vercel at phanos.app.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+pnpm i to get started, pnpm dev to develop. 
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+Pull ENV's from https://docs.google.com/document/d/1j0Fav8SBX7mbTrI-HtXNAmGmWQ1wW2d4Flbz3J9VpUk/edit?tab=t.0
 
-## Deploy Your Own
-
-Deploy your own Vite project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/vite-react&template=vite-react)
-
-_Live Example: https://vite-react-example.vercel.app_
-
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
-```
+API requests are filed at /api/v1/ and are redirected via vercel (vercel.json) to the render link.
