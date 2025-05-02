@@ -22,12 +22,21 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          setError("HTTP Error occured...");
+        if(auth.isAuthenticated){
+          const token = auth.user?.id_token; // can also be access token
+          const response = await fetch(apiUrl, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          if (!response.ok) {
+            setError("HTTP Error occured...");
+          }
+          const result = (await response.json())["message"];
+          setData(result);
+        }else{
+          setData("Log in first!");
         }
-        const result = (await response.json())["message"];
-        setData(result);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
@@ -36,7 +45,7 @@ function App() {
     };
 
     fetchData();
-  }, []);
+  }, [auth.isAuthenticated]);
 
   let authElements: JSX.Element | null;
 
