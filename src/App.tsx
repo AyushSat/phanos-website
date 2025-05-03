@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import { useAuth } from "react-oidc-context";
-import PRODUCTION_URL from "./constants.ts";
+import {PRODUCTION_URL, DEV_URL} from "./constants.ts";
+import { Routes, Route } from 'react-router-dom';
+import Callback from './callback';
 
 
 function App() {
@@ -10,7 +12,7 @@ function App() {
 
   const signOutRedirect = () => {
     const clientId = "4get5f78j454a695eoj7r06k13";
-    const logoutUri = import.meta.env.DEV ? "http://localhost:5173/" : PRODUCTION_URL;
+    const logoutUri = import.meta.env.DEV ? DEV_URL : PRODUCTION_URL;
     const cognitoDomain = "https://aesthetichomographya7ad08f01-7ad08f01-dev.auth.us-east-2.amazoncognito.com";
     window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
   };  
@@ -78,12 +80,19 @@ function App() {
 
   return (
     <>
-      <h1>Phanos Website!</h1>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      {data && <p>Backend Response: {data}</p>}
-      <h3>Auth portion</h3>
-      {authElements}
+      <Routes>
+        <Route path="/callback" element={<Callback />} />
+        <Route path="/" element={
+          <>
+            <h1>Phanos Website!</h1>
+            {loading && <p>Loading...</p>}
+            {error && <p>Error: {error}</p>}
+            {data && <p>Backend Response: {data}</p>}
+            <h3>Auth portion</h3>
+            {authElements}
+          </>
+        } />
+      </Routes>
     </>
   )
 }
