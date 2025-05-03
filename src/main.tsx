@@ -5,7 +5,7 @@ import App from './App.tsx'
 import './index.css'
 import {PRODUCTION_URL, DEV_URL} from "./constants.ts";
 import { AuthProvider,  } from "react-oidc-context";
-import { UserManagerSettings, WebStorageStateStore } from 'oidc-client-ts';
+import { WebStorageStateStore } from 'oidc-client-ts';
 
 
 const cognitoAuthConfig = {
