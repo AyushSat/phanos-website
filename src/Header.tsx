@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="w-full bg-gray-900 text-white px-6 py-4 flex justify-between items-start fixed top-0 left-0 z-50">
+    <header className="w-full bg-purple-600 text-white px-6 py-4 flex justify-between items-start fixed top-0 left-0 z-50">
     <h1 className="text-2xl font-bold">Phanos</h1>
     <div className="flex items-center gap-4">
       {auth.isLoading ? (
@@ -23,7 +23,7 @@ const Header: React.FC = () => {
         <>
           <button
             onClick={() => auth.removeUser()}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold"
+            className="bg-gray-200 hover:bg-gray-300 text-black px-4 py-2 rounded-md text-sm font-semibold"
           >
             Sign Out
           </button>
@@ -33,13 +33,13 @@ const Header: React.FC = () => {
         <>
           <button
             onClick={() => auth.signinRedirect()}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-semibold"
+             className="bg-gray-200 hover:bg-gray-300 text-black px-4 py-2 rounded-md text-sm font-semibold"
           >
             Sign In
           </button>
           <button
             onClick={signOutRedirect}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold"
+             className="bg-gray-200 hover:bg-gray-300 text-black px-4 py-2 rounded-md text-sm font-semibold"
           >
             Sign Out
           </button>
