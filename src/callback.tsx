@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useAuth } from 'react-oidc-context';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+interface AuthState {
+  from?: string;
+}
 
 function Callback() {
   const auth = useAuth();
@@ -8,11 +12,13 @@ function Callback() {
 
   useEffect(() => {
     if (auth.isAuthenticated) {
-        navigate('/'); 
+        const state = auth.user?.state as AuthState;
+        const returnTo = state?.from || '/';
+        navigate(returnTo);
     } else if (auth.error) {
         console.error('Authentication error during callback:', auth.error);
     }
-  }, [auth.isAuthenticated, auth.error, navigate]);
+  }, [auth.isAuthenticated, auth.error, navigate, auth.user?.state]);
 
   return (
     <div>
