@@ -14,39 +14,39 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-gray-200 px-6 py-4 flex justify-between items-center">
-      <h1 className="text-sm font-light">Phanos</h1>
-      <div className="flex gap-2 items-center">
-        {auth.isLoading ? (
-          <span>Loading...</span>
-        ) : auth.isAuthenticated ? (
+    <header className="w-full bg-gray-900 text-white px-6 py-4 flex justify-between items-start fixed top-0 left-0 z-50">
+    <h1 className="text-2xl font-bold">Phanos</h1>
+    <div className="flex items-center gap-4">
+      {auth.isLoading ? (
+        <span className="text-sm">Loading...</span>
+      ) : auth.isAuthenticated ? (
+        <>
           <button
             onClick={() => auth.removeUser()}
-            className="text-sm text-black hover:underline"
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold"
           >
             Sign Out
           </button>
-        ) : (
-          <>
-            <button
-              onClick={() => auth.signinRedirect()}
-              className="text-sm text-black hover:underline"
-            >
-              Sign In
-            </button>
-            <button
-              onClick={signOutRedirect}
-              className="text-sm text-black hover:underline"
-            >
-              Sign Out
-            </button>
-          </>
-        )}
-        {auth.isAuthenticated && (
-  <span className="text-xs text-gray-600">Hello, {auth.user?.profile.email}</span>
-)}
-      </div>
-    </header>
+          <span className="text-sm">Hello, {auth.user?.profile.email}</span>
+        </>
+      ) : (
+        <>
+          <button
+            onClick={() => auth.signinRedirect()}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-semibold"
+          >
+            Sign In
+          </button>
+          <button
+            onClick={signOutRedirect}
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold"
+          >
+            Sign Out
+          </button>
+        </>
+      )}
+    </div>
+  </header>
   );
 };
 
