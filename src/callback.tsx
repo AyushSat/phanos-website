@@ -22,9 +22,8 @@ function Callback() {
 
   return (
     <div>
-      <p>Processing login...</p>
-      {auth.isLoading && <p>Loading...</p>}
-      {auth.error && <p>Error: {auth.error.message}</p>}
+      {auth.isLoading && <p>Processing login...</p>}
+      {!auth.isLoading && auth.error && <p>Error: {auth.error.message}</p>}
     </div>
   );
 }

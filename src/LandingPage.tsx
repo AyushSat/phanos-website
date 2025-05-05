@@ -55,7 +55,7 @@ const LandingPage: React.FC = () => {
                 data-aos-delay={index * 150}
               >
                 <img
-                  src="/vite.svg" // Replace with your actual image path
+                  src="/vite.svg"
                   alt={`Step ${step}`}
                   className="object-cover w-full h-full"
                 />
@@ -88,7 +88,7 @@ const LandingPage: React.FC = () => {
             <li className="flex items-center gap-2 text-gray-400 line-through"><span>❌</span>No cloud backup</li>
           </ul>
         </div>
-        <button className="mt-8 bg-purple-100 text-black font-semibold py-2 rounded-xl hover:bg-purple-200 transition">
+        <button onClick={() => {alert("This will take you to the app store page!")}}className="mt-8 bg-purple-100 text-black font-semibold py-2 rounded-xl hover:bg-purple-200 transition">
           Get Started
         </button>
       </div>
@@ -111,9 +111,9 @@ const LandingPage: React.FC = () => {
             <li className="flex items-center gap-2"><span>✅</span>Cloud backup & sync</li>
           </ul>
         </div>
-        <button className="mt-8 bg-white text-purple-700 font-semibold py-2 rounded-xl hover:bg-purple-100 transition">
+        <a href="/checkout" className="mt-8 bg-white text-purple-700 font-semibold py-2 rounded-xl hover:bg-purple-100 transition">
           Subscribe Now
-        </button>
+        </a>
       </div>
     </div>
   </div>
