@@ -12,13 +12,13 @@ const LandingPage: React.FC = () => {
     <div className="bg-gray-100 min-h-screen">
       <Header />
 
-      <main className="bg-gray-300 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-24 pt-40 flex flex-col md:flex-row justify-center items-center gap-8">
+      <main className="bg-gray-300 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-6 pt-20 flex flex-col md:flex-row justify-center items-center gap-8">
         <div className="text-left max-w-md">
           <h1 className="text-2xl md:text-3xl font-semibold text-black">
             Welcome to the new age of mobile photography
           </h1>
         </div>
-        <div className="bg-white flex items-center justify-center w-[500px] h-[500px] overflow-hidden rounded-xl shadow-lg">
+        <div className="bg-white flex items-center justify-center w-[400px] overflow-hidden rounded-xl shadow-lg">
           <video
             className="w-full h-full object-cover"
             autoPlay
@@ -26,7 +26,8 @@ const LandingPage: React.FC = () => {
             muted
             playsInline
           >
-            <source src="/Dummyvid.mp4" type="video/mp4" />
+            <source src="/angleDemo.mp4" type="video/mp4; codecs=avc1.42E01E,mp4a.40.2" />
+            <source src="/angleDemo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
