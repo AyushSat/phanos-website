@@ -28,7 +28,7 @@ const Return = () => {
             <p>
             We appreciate your business! A confirmation email will be sent to {customerEmail}.
 
-            If you have any questions, please email <a href="mailto:orders@example.com">orders@example.com</a>.
+            If you have any questions, please email <a href="mailto:phanos.app@gmail.com">phanos.app@gmail.com</a>.
             </p>
         </section>
         )
