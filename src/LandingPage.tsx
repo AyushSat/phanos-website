@@ -33,14 +33,14 @@ const LandingPage: React.FC = () => {
         </div>
       </main>
 
-      <section className="bg-gray-100 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-16 flex justify-center">
-        <div className="flex flex-col items-center space-y-6 px-8 max-w-3xl text-center">
-          <ul className="list-none space-y-4 text-lg text-black">
+      <section className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-16 bg-purple-50 text-center animate-slide-up">
+        <div className="space-y-6 px-8 max-w-3xl mx-auto">
+          <ul className="list-none space-y-4 text-xl text-gray-700">
             <li>Issues taking photos of your partner?</li>
             <li>Random strangers unable to take good photos of you?</li>
             <li>Unpersonalized photos not enough for you?</li>
           </ul>
-          <h1 className="text-2xl font-semibold text-black">Phanos takes care of that!</h1>
+          <h2 className="text-3xl font-bold text-purple-800">Phanos takes care of that!</h2>
         </div>
       </section>
 
