@@ -48,20 +48,42 @@ const LandingPage: React.FC = () => {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-12 text-gray-800">How it works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((step, index) => (
               <div
-                key={index}
-                className="bg-gray-200 rounded-lg shadow-md overflow-hidden h-80 transform transition duration-300 hover:scale-105"
+                key={1}
+                className="bg-gray-200 rounded-lg shadow-md overflow-hidden h-170 transform transition duration-300 hover:scale-105"
                 data-aos="fade-up"
-                data-aos-delay={index * 150}
+                data-aos-delay={1 * 150}
               >
                 <img
-                  src="/vite.svg"
-                  alt={`Step ${step}`}
+                  src="/img1.jpeg"
+                  alt={`Step ${1}`}
                   className="object-cover w-full h-full"
                 />
               </div>
-            ))}
+              <div
+                key={2}
+                className="bg-gray-200 rounded-lg shadow-md overflow-hidden h-170 transform transition duration-300 hover:scale-105"
+                data-aos="fade-up"
+                data-aos-delay={2 * 150}
+              >
+                <img
+                  src="/img2.jpeg"
+                  alt={`Step ${2}`}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div
+                key={3}
+                className="bg-gray-200 rounded-lg shadow-md overflow-hidden h-170 transform transition duration-300 hover:scale-105"
+                data-aos="fade-up"
+                data-aos-delay={3 * 150}
+              >
+                <img
+                  src="/img3.jpeg"
+                  alt={`Step ${3}`}
+                  className="object-cover w-full h-full"
+                />
+              </div>
           </div>
         </div>
       </section>
