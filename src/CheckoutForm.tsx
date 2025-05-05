@@ -51,7 +51,7 @@ const CheckoutForm = () => {
             </div>
         )
     }else{
-        return <div>Log in first.</div>
+        return <div>Logging in...</div>
     }
 
     
