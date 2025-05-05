@@ -5,7 +5,7 @@ import {
   EmbeddedCheckout
 } from '@stripe/react-stripe-js';
 import { useAuth } from "react-oidc-context";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const stripePromise = loadStripe("pk_test_51RKmQdEJNDgJoqWpveNfMCjwkfuLMs5Jnj02eVxIGNKfWcD9Vrqdh6ctBMnsQnbKkmN8tJRzB9GhjwGmC2Pn07JJ00EiAvPvq2");
 
@@ -32,7 +32,7 @@ const CheckoutForm = () => {
                 .then((res) => res.json())
                 .then((data) => data.clientSecret);
         }else{
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve, _) => {
                 resolve("This won't work, just for type safety and not wasting an API call");
               });
         }

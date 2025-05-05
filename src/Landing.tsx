@@ -6,12 +6,12 @@ import {PRODUCTION_URL, DEV_URL} from "./constants.ts";
 function Landing() {
     const auth = useAuth();
 
-    const signOutRedirect = () => {
-      const clientId = "4get5f78j454a695eoj7r06k13";
-      const logoutUri = import.meta.env.DEV ? DEV_URL : PRODUCTION_URL;
-      const cognitoDomain = "https://aesthetichomographya7ad08f01-7ad08f01-dev.auth.us-east-2.amazoncognito.com";
-      window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
-    };  
+    // const signOutRedirect = () => {
+    //   const clientId = "4get5f78j454a695eoj7r06k13";
+    //   const logoutUri = import.meta.env.DEV ? DEV_URL : PRODUCTION_URL;
+    //   const cognitoDomain = "https://aesthetichomographya7ad08f01-7ad08f01-dev.auth.us-east-2.amazoncognito.com";
+    //   window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
+    // };  
   
     const [data, setData] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(true);
