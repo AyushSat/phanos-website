@@ -8,7 +8,7 @@ import { useAuth } from "react-oidc-context";
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
 
-const stripePromise = loadStripe("pk_test_...");
+const stripePromise = loadStripe("pk_test_51RKmQdEJNDgJoqWpveNfMCjwkfuLMs5Jnj02eVxIGNKfWcD9Vrqdh6ctBMnsQnbKkmN8tJRzB9GhjwGmC2Pn07JJ00EiAvPvq2");
 
 const CheckoutForm = () => {
   const auth = useAuth();
@@ -48,7 +48,8 @@ const CheckoutForm = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Header />
-
+        <br></br>
+        <br></br>
       <div className="flex flex-col md:flex-row max-w-6xl mx-auto px-6 py-12 gap-8">
         {/* Stripe Checkout Section */}
         <div className="w-full md:w-2/3 bg-white rounded-xl shadow-md p-6">
