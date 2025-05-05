@@ -22,7 +22,7 @@ const Header: React.FC = () => {
       ) : auth.isAuthenticated ? (
         <>
           <button
-            onClick={() => auth.removeUser()}
+            onClick={() => signOutRedirect()}
             className="bg-gray-200 hover:bg-gray-300 text-black px-4 py-2 rounded-md text-sm font-semibold"
           >
             Sign Out
