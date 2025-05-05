@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import { useAuth } from "react-oidc-context";
-import {PRODUCTION_URL, DEV_URL} from "./constants.ts";
 
 function Landing() {
     const auth = useAuth();
