@@ -43,51 +43,60 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="bg-white py-24 px-4 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12 text-gray-800">How it works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div
-                key={1}
-                className="bg-gray-200 rounded-lg shadow-md overflow-hidden h-170 transform transition duration-300 hover:scale-105"
-                data-aos="fade-up"
-                data-aos-delay={1 * 150}
-              >
-                <img
-                  src="/img1.jpeg"
-                  alt={`Step ${1}`}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div
-                key={2}
-                className="bg-gray-200 rounded-lg shadow-md overflow-hidden h-170 transform transition duration-300 hover:scale-105"
-                data-aos="fade-up"
-                data-aos-delay={2 * 150}
-              >
-                <img
-                  src="/img2.jpeg"
-                  alt={`Step ${2}`}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div
-                key={3}
-                className="bg-gray-200 rounded-lg shadow-md overflow-hidden h-170 transform transition duration-300 hover:scale-105"
-                data-aos="fade-up"
-                data-aos-delay={3 * 150}
-              >
-                <img
-                  src="/img3.jpeg"
-                  alt={`Step ${3}`}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-          </div>
-        </div>
-      </section>
+      <section className="bg-white py-12 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+  <div className="max-w-6xl mx-auto text-center px-4">
+    <h2 className="text-3xl font-bold mb-10 text-gray-800">How it works</h2>
 
-      <section className="bg-white py-24 px-4 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
+      {/* Step 1 */}
+      <div className="flex flex-col items-center text-center gap-4 transform transition-transform duration-1000 ease-in-out hover:scale-110 p-4" data-aos="fade-up" data-aos-delay={100}>
+        <div>
+          <h3 className="text-xl font-bold text-gray-600 mb-1">Step 1:</h3>
+          <p className="text-sm text-gray-600">Select photos that you like</p>
+        </div>
+        <div className="flex justify-center">
+          <img
+            src="/iphoneT3.png"
+            alt="Step 1"
+            className="w-52 h-auto object-contain mx-auto"
+          />
+        </div>
+      </div>
+
+      {/* Step 2 */}
+      <div className="flex flex-col items-center text-center gap-4 transform transition-transform duration-1000 ease-in-out hover:scale-110 p-4" data-aos="fade-up" data-aos-delay={200}>
+        <div>
+          <h3 className="text-xl font-bold text-gray-600 mb-1">Step 2:</h3>
+          <p className="text-sm text-gray-600">Our ML will detect patterns and learn your photo style</p>
+        </div>
+        <div className="flex justify-center">
+          <img
+            src="/img2_iphone.png"
+            alt="Step 2"
+            className="w-52 h-auto object-contain mx-auto"
+          />
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="flex flex-col items-center text-center gap-4 transform transition-transform duration-1000 ease-in-out hover:scale-110 p-4" data-aos="fade-up" data-aos-delay={300}>
+        <div>
+          <h3 className="text-xl font-bold text-gray-600 mb-1">Step 3:</h3>
+          <p className="text-sm text-gray-600">Just point and shoot — we handle the rest</p>
+        </div>
+        <div className="flex justify-center">
+          <img
+            src="/img3_iphone.png"
+            alt="Step 3"
+            className="w-52 h-auto object-contain mx-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section className="bg-white py-15 px-4 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
   <div className="max-w-5xl mx-auto text-center">
     <h2 className="text-3xl font-bold mb-12 text-gray-800">Choose Your Plan</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -140,6 +149,13 @@ const LandingPage: React.FC = () => {
     </div>
   </div>
 </section>
+
+<footer className="bg-gray-100 py-6">
+  <div className="max-w-fit mx-auto bg-white px-6 py-3 rounded-md shadow-md text-sm text-gray-600">
+    ©2025 Phanos. All rights reserved &nbsp;•&nbsp;
+    Made with <span className="text-pink-500">❤️</span> by builders at Cornell
+  </div>
+</footer>
     </div>
 
     

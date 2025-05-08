@@ -4,6 +4,7 @@ import Callback from './callback';
 import CheckoutForm from './CheckoutForm.tsx';
 import Return from './CheckoutReturn.tsx';
 import LandingPage from './LandingPage.tsx';
+import UserPage from './UserPage';
 
 
 function App() {
@@ -85,6 +86,7 @@ function App() {
         <Route path="/" element={<LandingPage />}/>
         <Route path="/checkout" element={<CheckoutForm/>}/>
         <Route path="/return" element={<Return/>}/>
+        <Route path="/users" element={<UserPage />} />
       </Routes>
     </>
   )

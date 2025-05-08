@@ -2,6 +2,7 @@
 import React from 'react';
 import { useAuth } from "react-oidc-context";
 import { DEV_URL, PRODUCTION_URL } from './constants';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const auth = useAuth();
@@ -15,8 +16,11 @@ const Header: React.FC = () => {
 
   return (
     <header className="w-full bg-purple-600 text-white px-6 py-4 flex justify-between items-start fixed top-0 left-0 z-50">
-    <h1 className="text-2xl font-bold">Phanos</h1>
-    <div className="flex items-center gap-4">
+          <Link to="/">
+          <h1 className="text-2xl font-bold text-white no-underline hover:no-underline">Phanos</h1>
+        </Link>
+       
+    <div className="flex items-center gap-4 text-white">
       {auth.isLoading ? (
         <span className="text-sm">Loading...</span>
       ) : auth.isAuthenticated ? (
@@ -27,7 +31,12 @@ const Header: React.FC = () => {
           >
             Sign Out
           </button>
-          <span className="text-sm">Hello, {auth.user?.profile.email}</span>
+          <Link
+  to="/users"
+  className="text-sm text-white no-underline hover:text-white visited:text-white active:text-white focus:text-white"
+>
+  <p className="text-sm text-white">Hello, </p><p className="text-sm text-white hover:text-white visited:text-white active:text-white focus:text-white">{auth.user?.profile.email}</p>
+</Link>
         </>
       ) : (
         <>
