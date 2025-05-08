@@ -27,7 +27,7 @@ const CheckoutForm = () => {
 
   useEffect(() => {
     if (auth.isAuthenticated && auth.user?.profile.email) {
-      fetch(import.meta.env.VITE_API_URL + `get-status?email=${auth.user.profile.email}`, {
+      fetch(import.meta.env.VITE_API_URL + `/get-status?email=${auth.user.profile.email}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${auth.user?.id_token}`,
@@ -50,7 +50,7 @@ const CheckoutForm = () => {
 
   const fetchClientSecret = useCallback((): Promise<string> => {
     if (auth.isAuthenticated) {
-      return fetch(import.meta.env.VITE_API_URL + "create-checkout-session", {
+      return fetch(import.meta.env.VITE_API_URL + "/create-checkout-session", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${auth.user?.id_token}`,

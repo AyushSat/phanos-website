@@ -12,7 +12,7 @@ const UsersPage: React.FC = () => {
 
   useEffect(() => {
     if (auth.isAuthenticated && auth.user?.profile.email) {
-      fetch(import.meta.env.VITE_API_URL + `get-status?email=${auth.user?.profile.email}`, {
+      fetch(import.meta.env.VITE_API_URL + `/get-status?email=${auth.user?.profile.email}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${auth.user?.id_token}`,
@@ -62,7 +62,7 @@ const UsersPage: React.FC = () => {
        <br></br>
        <button className="bg-purple-800 hover:bg-purple-900 text-white font-semibold py-2 px-4 rounded-2xl shadow-md transition duration-300" onClick={async () => {
         if(isPremium){
-          await fetch(import.meta.env.VITE_API_URL + `unsubscribe?email=${auth.user?.profile.email}`, {
+          await fetch(import.meta.env.VITE_API_URL + `/unsubscribe?email=${auth.user?.profile.email}`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${auth.user?.id_token}`,
