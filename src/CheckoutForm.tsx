@@ -94,6 +94,8 @@ const CheckoutForm = () => {
       <div className="flex flex-col md:flex-row max-w-6xl mx-auto px-6 py-12 gap-8">
         {/* Stripe Checkout Section */}
         <div className="w-full md:w-2/3 bg-white rounded-xl shadow-md p-6">
+        <p>*Tip for graders*: Use 4242 4242 4242 4242 with any other random fields to get a successful payment, 4000 0000 0000 0002 for an unsuccessful payment.</p>
+        <br></br>
           <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
             <EmbeddedCheckout />
           </EmbeddedCheckoutProvider>
