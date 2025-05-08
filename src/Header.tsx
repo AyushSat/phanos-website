@@ -11,6 +11,7 @@ const Header: React.FC = () => {
     const clientId = "4get5f78j454a695eoj7r06k13";
     const logoutUri = import.meta.env.DEV ? DEV_URL : PRODUCTION_URL;
     const cognitoDomain = "https://aesthetichomographya7ad08f01-7ad08f01-dev.auth.us-east-2.amazoncognito.com";
+    auth.removeUser();
     window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
   };
 

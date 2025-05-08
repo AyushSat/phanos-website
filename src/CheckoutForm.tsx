@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import {
   EmbeddedCheckoutProvider,
@@ -13,6 +13,9 @@ const stripePromise = loadStripe("pk_test_51RKmQdEJNDgJoqWpveNfMCjwkfuLMs5Jnj02e
 const CheckoutForm = () => {
   const auth = useAuth();
   const location = useLocation();
+  
+  const [loadingPremium, setLoadingPremium] = useState(true);
+  const [isPremium, setIsPremium] = useState(false);
 
   useEffect(() => {
     if (!auth.isAuthenticated) {
@@ -20,15 +23,42 @@ const CheckoutForm = () => {
         state: { from: location.pathname }
       });
     }
-  }, [auth.isAuthenticated]);
+  }, []);
+
+  useEffect(() => {
+    if (auth.isAuthenticated && auth.user?.profile.email) {
+      fetch(import.meta.env.VITE_API_URL + `get-status?email=${auth.user.profile.email}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${auth.user?.id_token}`,
+        'Content-Type': 'application/json',
+        }
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        setIsPremium(data.premium.BOOL);
+        setLoadingPremium(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching premium status:', error);
+        setLoadingPremium(false);
+      });
+    }
+  }, [auth.isAuthenticated, auth.user?.profile.email]);
+
+  
 
   const fetchClientSecret = useCallback((): Promise<string> => {
     if (auth.isAuthenticated) {
-      return fetch(import.meta.env.VITE_API_URL + "/create-checkout-session", {
+      return fetch(import.meta.env.VITE_API_URL + "create-checkout-session", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${auth.user?.id_token}`,
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          email: auth.user?.profile.email
+        })
       })
         .then((res) => res.json())
         .then((data) => data.clientSecret);
@@ -37,14 +67,25 @@ const CheckoutForm = () => {
         resolve("This won't work, just for type safety and not wasting an API call");
       });
     }
-  }, [auth.isAuthenticated]);
+  }, [auth.isAuthenticated, auth.user?.profile.email]);
 
-  if (!auth.isAuthenticated) {
+  if (!auth.isAuthenticated || loadingPremium) {
     return <div>Logging in...</div>;
   }
 
   const options = { fetchClientSecret };
 
+  if(isPremium){
+    return <div className="min-h-screen">
+    <Header />
+      <br></br>
+      <br></br>
+      <div className="flex flex-col md:flex-col max-w-6xl mx-auto px-6 py-12 gap-8">
+        <h1>Already premium!</h1>
+        <h3>Thanks for subscribing! We appreciate your business.</h3>
+      </div>
+    </div>
+  }
   return (
     <div className="bg-gray-50 min-h-screen">
       <Header />
@@ -64,7 +105,7 @@ const CheckoutForm = () => {
           <p className="text-gray-700 text-sm leading-relaxed">
             Your payment is encrypted and processed securely via Stripe.<br />
             We do <strong>not store</strong> your credit card details.<br /><br />
-            Look for the lock icon in your browser’s address bar to verify SSL encryption.
+            Look for the lock icon in your browser's address bar to verify SSL encryption.
           </p>
         </div>
       </div>

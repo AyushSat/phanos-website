@@ -67,7 +67,7 @@ const LandingPage: React.FC = () => {
       <div className="flex flex-col items-center text-center gap-4 transform transition-transform duration-1000 ease-in-out hover:scale-110 p-4" data-aos="fade-up" data-aos-delay={200}>
         <div>
           <h3 className="text-xl font-bold text-gray-600 mb-1">Step 2:</h3>
-          <p className="text-sm text-gray-600">Our ML will detect patterns and learn your photo style</p>
+          <p className="text-sm text-gray-600">Our algorithms will learn your photo style</p>
         </div>
         <div className="flex justify-center">
           <img
@@ -129,7 +129,7 @@ const LandingPage: React.FC = () => {
         <div>
           <div className="flex justify-center mb-4">
             <div className="bg-white/20 p-3 rounded-full">
-              <span className="text-xl">💜</span>
+              <span className="text-xl">❤️</span>
             </div>
           </div>
           <h3 className="text-xl font-semibold mb-1">Premium</h3>
@@ -157,7 +157,6 @@ const LandingPage: React.FC = () => {
   </div>
 </footer>
     </div>
-
     
   );
 };

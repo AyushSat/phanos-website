@@ -3,7 +3,6 @@ import {Navigate} from "react-router-dom";
 
 const Return = () => {
     const [status, setStatus] = useState(null);
-    const [customerEmail, setCustomerEmail] = useState('');
 
     useEffect(() => {
         const queryString = window.location.search;
@@ -14,7 +13,6 @@ const Return = () => {
         .then((res) => res.json())
         .then((data) => {
             setStatus(data.status);
-            setCustomerEmail(data.customer_email);
         });
     }, []);
 
@@ -23,15 +21,7 @@ const Return = () => {
         <Navigate to="/checkout" />
         )
     }else if (status === 'complete') {
-        return (
-        <section id="success">
-            <p>
-            We appreciate your business! A confirmation email will be sent to {customerEmail}.
-
-            If you have any questions, please email <a href="mailto:phanos.app@gmail.com">phanos.app@gmail.com</a>.
-            </p>
-        </section>
-        )
+        return <Navigate to="/users" />
     }else{
         return (<section id="success">
             <p>

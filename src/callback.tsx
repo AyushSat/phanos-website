@@ -19,10 +19,10 @@ function Callback() {
         console.error('Authentication error during callback:', auth.error);
     }
   }, [auth.isAuthenticated, auth.error, navigate, auth.user?.state]);
-
+  
   return (
     <div>
-      {auth.isLoading && <p>Processing login...</p>}
+      {auth.isLoading && <p>Logging in...</p>}
       {!auth.isLoading && auth.error && <p>Error: {auth.error.message}</p>}
     </div>
   );
